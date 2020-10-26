@@ -1,0 +1,55 @@
+<mat-toolbar>
+    <span>{{service.form.controls['$key'].value?"Modify University":"New University"}}</span>
+    <span class="fill-reamining-space"></span>
+    <button class="btn-dialog-close" mat-mini-fab (click)="onClose()" tabIndex="-1"><mat-icon>clear</mat-icon></button>
+</mat-toolbar>
+<form [formGroup]="service.form" class="normal-form" (submit)="onSubmit()">
+<mat-grid-list cols="1" rowHeight="600px">
+    <mat-grid-tile>
+        <div class="controles-container">
+            <input type="hidden" formControlName="$key">
+            <mat-form-field>
+                <input formControlName="name" matInput placeholder="University Name">
+            </mat-form-field>
+            <mat-form-field>
+                <mat-select formControlName="country" placeholder="Country">
+                    <mat-option>None</mat-option>
+                    <ng-container *ngFor="let country of countries">
+                        <mat-option value="{{country.value}}">{{country.value}}</mat-option>
+                    </ng-container>
+                </mat-select>
+            </mat-form-field>
+            <mat-form-field>
+                <mat-select formControlName="career" placeholder="Career">
+                    <mat-option>None</mat-option>
+                    <ng-container *ngFor="let career of careers">
+                        <mat-option value="{{career.value}}">{{career.value}}</mat-option>
+                    </ng-container>
+                </mat-select>
+            </mat-form-field>
+            <mat-form-field>
+                <input formControlName="webpage" matInput placeholder="Web Page">
+            </mat-form-field>
+            <mat-form-field>
+                <mat-label>Career Focus</mat-label>
+                <textarea formControlName="careerFocus" matInput placeholder="Ex. It has focus on software engineering..."></textarea>
+              </mat-form-field>
+            <mat-form-field>
+                <mat-select formControlName="agreement" placeholder="Does have agreement with the UANL?">
+                    <mat-option>None</mat-option>
+                    <ng-container *ngFor="let agreement of agreements">
+                        <mat-option value="{{agreement.id}}">{{agreement.value}}</mat-option>
+                    </ng-container>
+                </mat-select>
+            </mat-form-field>
+            <mat-form-field>
+                <input formControlName="curriculum" matInput placeholder="Curriculum">
+            </mat-form-field>
+            <div class="button-row">
+                <button mat-raised-button color="primary" type="submit" [disabled]="service.form.invalid">Submit</button>
+                <button mat-raised-button color="accent" (click)="onClear()">Clear</button>
+            </div>
+        </div>
+    </mat-grid-tile>
+</mat-grid-list>
+</form>

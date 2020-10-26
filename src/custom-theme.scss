@@ -1,0 +1,30 @@
+@import '~@angular/material/theming';
+
+@include mat-core();
+
+// Define the default theme (same as the example above).
+$candy-app-light-primary: mat-palette($mat-indigo);
+$candy-app-light-accent: mat-palette($mat-pink);
+$candy-app-light-warn: mat-palette($mat-red);
+
+$candy-app-dark-primary: mat-palette($mat-pink);
+$candy-app-dark-accent: mat-palette($mat-blue-grey);
+$candy-app-dark-warn: mat-palette($mat-red);
+
+$candy-app-light-theme: mat-light-theme($candy-app-light-primary, $candy-app-light-accent, $candy-app-light-warn);
+
+$candy-app-dark-theme: mat-dark-theme($candy-app-dark-primary, $candy-app-dark-accent, $candy-app-dark-warn);
+
+@include angular-material-theme($candy-app-light-theme);
+
+.light-theme {
+    @include angular-material-theme($candy-app-light-theme);
+    background: white;
+    color: black;
+}
+
+.dark-theme {
+    @include angular-material-theme($candy-app-dark-theme);
+    background: rgb(34, 34, 34);
+    color: white;
+}

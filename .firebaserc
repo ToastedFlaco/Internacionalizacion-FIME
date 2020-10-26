@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "internacionalizacionfime": {
+      "hosting": {
+        "InternacionalizacionApp": [
+          "internacionalizacionfime"
+        ]
+      }
+    }
+  }
+}
